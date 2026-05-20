@@ -47,7 +47,19 @@
   </macro>
 
   <macro name="doi">
-    <text variable="doi" prefix="DOI: "/>
+    <text variable="doi" prefix="https://doi.org/"/>
+  </macro>
+
+  <macro name="url">
+    <text variable="URL"/>
+  </macro>
+
+  <macro name="accessed">
+    <date variable="accessed" prefix="Acesso em: ">
+      <date-part name="day" suffix=" "/>
+      <date-part name="month" form="short" suffix=" "/>
+      <date-part name="year"/>
+    </date>
   </macro>
 
   <!-- Citação no texto -->
@@ -65,9 +77,11 @@
       <group delimiter=", ">
         <text macro="container"/>
         <text macro="volume_issue_pages"/>
+        <text macro="issued"/>
       </group>
-      <text macro="issued"/>
       <text macro="doi"/>
+      <text macro="url" prefix=". "/>
+      <text macro="accessed" prefix=". "/>
     </layout>
   </bibliography>
 
