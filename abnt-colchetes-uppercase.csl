@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="numeric">
   <info>
     <title>ABNT (numérico, colchetes, autores MAIÚSCULAS)</title>
     <id>http://www.zotero.org/styles/abnt-num-colchetes-uppercase</id>
-    <link href="http://www.zotero.org/styles/abnt" rel="self"/>
+    <link href="http://www.zotero.org/styles/abnt" rel="template"/>
     <author>
       <name>Gerado por Assistente</name>
     </author>
     <category citation-format="numeric"/>
-    <summary>Variante numérica da ABNT com citações entre colchetes; autores forçados a MAIÚSCULAS; inclui DOI e identificador de artigo.</summary>
+    <category field="generic-base"/>
+    <summary>Estilo ABNT numérico com citações entre colchetes e autores em MAIÚSCULAS.</summary>
     <updated>2026-05-20T00:00:00+00:00</updated>
     <rights>CC0</rights>
-    <locale xml:lang="pt-BR"/>
   </info>
 
   <!-- Macros -->
@@ -25,7 +25,7 @@
   </macro>
 
   <macro name="title">
-    <text variable="title" font-style="italic" text-case="sentence"/>
+    <text variable="title" font-style="italic"/>
   </macro>
 
   <macro name="container">
@@ -36,58 +36,42 @@
     <group delimiter=", ">
       <text variable="volume" prefix="v. "/>
       <text variable="issue" prefix="n. "/>
-      <!-- article-number (identificador) -->
-      <text variable="article-number" prefix="art. " />
-      <!-- page fallback -->
-      <text variable="page" prefix="p. " />
+      <text variable="page" prefix="p. "/>
     </group>
   </macro>
 
   <macro name="issued">
     <date variable="issued">
-      <date-part name="day" suffix=" "/>
-      <date-part name="month" form="short" suffix=" "/>
       <date-part name="year"/>
     </date>
   </macro>
 
   <macro name="doi">
-    <group delimiter=" ">
-      <text variable="DOI" prefix="DOI: "/>
-    </group>
+    <text variable="doi" prefix="DOI: "/>
   </macro>
 
-  <!-- Citação no texto: número entre colchetes -->
-  <citation>
+  <!-- Citação no texto -->
+  <citation collapse="citation-number">
     <layout prefix="[" suffix="]" delimiter=", ">
       <text variable="citation-number"/>
     </layout>
   </citation>
 
   <!-- Bibliografia -->
-  <bibliography hanging-indent="true" line-spacing="1">
+  <bibliography hanging-indent="true" line-spacing="1.0">
     <layout delimiter=". " suffix=".">
-      <!-- Autores em maiúsculas garantidas -->
-      <group>
-        <text macro="author"/>
-      </group>
-
-      <!-- Título em itálico -->
-      <group>
-        <text macro="title"/>
-      </group>
-
-      <!-- Periódico, volume/issue/artigo/páginas, data, DOI -->
-      <group delimiter=". ">
+      <text macro="author"/>
+      <text macro="title"/>
+      <group delimiter=", ">
         <text macro="container"/>
         <text macro="volume_issue_pages"/>
-        <text macro="issued"/>
-        <text macro="doi"/>
       </group>
+      <text macro="issued"/>
+      <text macro="doi"/>
     </layout>
   </bibliography>
 
-  <!-- Locale e termos -->
+  <!-- Locale -->
   <locale xml:lang="pt-BR">
     <terms>
       <term name="editor">org.</term>
