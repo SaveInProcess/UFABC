@@ -14,7 +14,6 @@
     <rights>CC0</rights>
   </info>
 
-  <!-- Macros -->
   <macro name="author">
     <names variable="author" delimiter="; ">
       <name form="long" name-as-sort-order="all" initialize-with=". " sort-separator=", ">
@@ -50,14 +49,12 @@
     <text variable="doi" prefix="DOI: "/>
   </macro>
 
-  <!-- Citação no texto -->
   <citation collapse="citation-number">
     <layout prefix="[" suffix="]" delimiter=", ">
       <text variable="citation-number"/>
     </layout>
   </citation>
 
-  <!-- Bibliografia -->
   <bibliography hanging-indent="true" line-spacing="1.0">
     <layout delimiter=". " suffix=".">
       <text macro="author"/>
@@ -71,7 +68,6 @@
     </layout>
   </bibliography>
 
-  <!-- Locale -->
   <locale xml:lang="pt-BR">
     <terms>
       <term name="editor">org.</term>
